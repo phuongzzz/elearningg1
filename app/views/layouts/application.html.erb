@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render "layouts/sidebar" %>
+      <div id="content">
+        <%= render "layouts/topbar" %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
