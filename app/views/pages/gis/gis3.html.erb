@@ -1,0 +1,90 @@
+<h4>4.3.1. Tham khảo địa lý</h4>
+<p>Các thông tin địa lý hoặc chứa những tham khảo địa lý hiện (chẳng hạn như kinh độ, vĩ độ hoặc toạ độ lưới quốc gia), hoặc chứa những tham khảo địa lý ẩn (như địa chỉ, mã bưu điện, tên vùng điều tra dân số, bộ định danh các khu vực rừng hoặc tên đường). Mã hoá địa lý là quá trình tự động thường được dùng để tạo ra các tham khảo địa lý hiện (vị trí bội) từ các tham khảo địa lý ẩn (là những mô tả, như địa chỉ). Các tham khảo địa lý cho phép định vị đối tượng (như khu vực rừng hay địa điểm thương mại) và sự kiện (như động đất) trên bề mặt quả đất phục vụ mục đích phân tích.</p>
+
+<h4>4.3.2. Mô hình Vector và Raster</h4>
+<p>Hệ thống thông tin địa lý làm việc với hai dạng mô hình dữ liệu địa lý khác nhau về cơ bản - mô hình vector và mô hình raster. Trong mô hình vector, thông tin về điểm, đường và vùng được mã hoá và lưu dưới dạng tập hợp các toạ độ x,y. Vị trí của đối tượng điểm, như lỗ khoan, có thể được biểu diễn bởi một toạ độ đơn x,y. Ðối tượng dạng đường, như đường giao thông, sông suối, có thể được lưu dưới dạng tập hợp các toạ độ điểm. Ðối tượng dạng vùng, như khu vực buôn bán hay vùng lưu vực sông, được lưu như một vòng khép kín của các điểm toạ độ.</p>
+<p>Mô hình vector rất hữu ích đối với việc mô tả các đối tượng riêng biệt, nhưng kém hiệu quả hơn trong miêu tả các đối tượng có sự chuyển đổi liên tục như kiểu đất hoặc chi phí ước tính cho các bệnh viện. Mô hình raster ddược phát triển cho mô phỏng các đối tượng liên tục như vậy. Một ảnh raster là một tập hợp các ô lưới. Cả mô hình vector và raster đều được dùng để lưu dữ liệu địa lý với nhưng ưu điểm, nhược điểm riêng, Các hệ GIS hiện đại có khả năng quản lý cả hai mô hình này.</p>
+
+<h5>4.3.2.1. Mô hình Vector</h5>
+<p>Trong mô hình vector, thông tin về điểm, đường và vùng được mã hoá và lưu dưới dạng tập hợp các toạ độ x,y. Vị trí của đối tượng điểm, như lỗ khoan, có thể được biểu diễn bởi một toạ độ đơn x,y. Ðối tượng dạng đường, như đường giao thông, sông suối, có thể được lưu dưới dạng tập hợp các toạ độ điểm. Ðối tượng dạng vùng, như khu vực buôn bán hay vùng lưu vực sông, được lưu như một vòng khép kín của các điểm toạ độ.</p>
+
+<h5>4.3.2.2. Mô hình Raster</h5>
+<p>Một ảnh raster là một tập hợp các ô lưới. Với dữ liệu raster thì các tệp thuộc tính thông thường chứa dữ liệu liên quan đến lớp hiện tượng tự nhiên thay cho các đối tượng rời rạc.</p>
+
+<h5>4.3.2.3. Phân tích các yếu tố</h5>
+<p>Có hai phương pháp chính để lưu trữ thông tin bản đồ: GIS lưu các đối tượng bản đồ trong định dạng vector và trong định dạng raster. Trong định dạng vector, các đối tượng bản đồ được biểu diễn bởi các đối tượng hình học cơ bản point(điểm), line(đường), polygon(vùng). Point dùng xác định các đối tựợng không có hình dạng kích thước cụ thể, hay có kích thước quá nhỏ so với tỷ lệ bản đồ. Line để xác định các đối tượng có chiều dài xác định. Polygon để xác định các vùng, miền trên mặt đất. Trong định dạng này, thông tin được mô tả có tính chính xác cao đồng thời tiết kiệm không gian lưu trữ. Thông tin lưu trong định dạng vector chủ yếu được ứng dụng trong bài toán về mạng, hệ thống thông tin đất đai. Trong định dạng raster, các đối tượng bản đồ được biểu diễn trong một chuỗi các điểm ảnh trong một lưới hình chữ nhật. Mỗi điểm ảnh được xác định thông qua chỉ số hàng và cột trong lưới. Trong raster, point sẽ được biểu diễn bởi một điểm ảnh đơn, line được biểu diễn bởi một chuỗi các điểm ảnh liên tiếp nhau, và polygon xác định bởi một nhóm các điểm ảnh kề sát nhau. Dữ liệu được lưu trong định dạng này rất đơn giản nhưng lại đòi hỏi dung lượng bộ nhớ lớn. Raster phù hợp với các dạng dữ liệu có đường biên không rõ ràng. Raster được ứng dụng nhiều trong phân tích bề mặt liên tục.</p>
+<%= image_tag ("/images/g2.jpg"), class: "img-responsive" %>
+<p>Hình 8: Định dang dữ liệu Vector và Raster</p>
+
+<h6>4.3.2.3.1. Hệ tọa độ địa lý và hệ tọa độ quy chiều</h6>
+<p>Vị trí của vật thể trong không gian đều phải gắn liền với một hệ toạ độ. Trong GIS, để biểu diễn dữ liệu không gian người ta thường dùng 2 hệ toạ độ: hệ toạ độ địa lý và hệ toạ độ quy chiếu. Hệ toạ độ địa lý là hệ toạ độ lấy mặt cầu ba chiều bao quanh trái đất làm cơ sở. Một điểm được xác định bằng kinh độ và vĩ độ của nó trên mặt cầu. Hệ toạ độ quy chiếu là hệ toạ độ hai chiều thu</p>
+
+<h6>4.3.2.3.2. Hệ tọa độ địa lý</h6>
+<p>Hệ tọa độ địa lý sử dụng bề mặt hình cầu để xác định vị trí của một điểm trên trái đất.</p>
+
+<p class="lead">Đơn vị đo của hệ là độ.</p>
+
+<p>Vì đây là hệ tọa độ gắn liền với trục trái đất nên để xác định vị trí của đối tượng người ta chia bề mặt trái đất thành các đường kinh tuyến và vĩ tuyến. Kinh tuyến là các đường cong cách đều nhau chạy qua hai điểm cực Bắc và Nam, vĩ tuyến là các đường tròn song song có tâm nằm trên trục của trái đất. Giao điểm giữa kinh tuyến và vĩ tuyến tạo thành các ô lưới.</p>
+<p>Trong số các kinh tuyến và vĩ tuyến có hai đường quan trọng nhất được lấy làm gốc toạ độ đó là: vĩ tuyến có bán kính lớn nhất - chính là đường xích đạo và kinh tuyến chạy qua vùng Greenland nước Anh. Giao điểm giữa hai đường này là gốc toạ độ. Hai đường này cũng đồng thời chia trái đất làm 4 phần bằng nhau: nửa Bắc và Nam nằm phía trên và dưới của đường xích đạo; nửa Đông và Tây nằm ở phía bên phải và trái của kinh tuyến gốc.</p>
+<p>Một điểm nằm trên mặt cầu sẽ có hai giá trị toạ độ là kinh độ và vĩ độ được xác định như trong hình vẽ trên. Giá trị này có thể được đo bằng độ theo cơ số 10 hoặc theo độ, phút, giây. Miền giá trị của vĩ độ: -900 ÷ 900 kinh độ: -1800 ÷ 1800</p>
+<%= image_tag ("/images/g3.jpg"), class: "img-responsive" %>
+<p>Hình 9: Quan hệ tọa độ địa lý và trực quan</p>
+<em>Chú ý: chỉ trên đường xích đạo thì khoảng cách một độ của vĩ tuyến mới bằng khoảng cách một độ trên kinh tuyến. Trên các vĩ tuyến khác khoảng cách này khác nhau rất nhiều. Người ta tính rằng một độ trên kinh tuyến dài khoảng 111,321 km trong khi 600 trên vĩ tuyến chỉ có độ dài 55,802 km. Chính vì sự khác nhau này nên ta không thể đo chính xác được chiều dài và diện tích của đối tượng khi dữ liệu bản đồ được chiếu lên mặt phẳng.</em>
+<br><br>
+
+<p class="lead">Mặt cầu và mặt Ellipsoid</p>
+<p>Trong hệ toạ độ địa lý có hai bề mặt hình cầu được sử dụng đó là: mặt cầu (tuyệt đối) và mặt Ellipsoid.</p>
+<p>Vì bề mặt của trái đất của ta không phải là hình cầu tuyệt đối mà nó gần với hình Ellipsoid nên mặt Ellipsoid thường được dùng để biểu diễn. Tuy nhiên đôi khi người ta cũng sử dụng mặt cầu để công việc tính toán dễ dàng hơn. Khi tỷ lện bản đồ rất nhỏ < 1:5000.000, ở tỷ lệ này sự khác biệt giữa dữ liệu biểu diễn bằng mặt cầu và mặt Ellipsoid là không thể phân biệt được bằng mặt thường. Lúc này, mặt cầu được dùng. Nhưng khi tỷ lệ > 1:1.000.000 thì người ta cần thiết phải dùng mặt Ellipsoid để đảm bảo độ chính xác. Do đó, việc lựa chọn mặt cầu hay mặt Ellipsoid phụ thuộc vào mục đích của bản đồ và độ chính xác dữ liệu.</p>
+<%= image_tag ("/images/g4.jpg"), class: "img-responsive" %>
+<p>Hình 10: Mặt cầu và Elip</p>
+
+<p>Nếu mặt cầu dựa trên hình tròn thì mặt Ellipsoid lại có cơ sở là hình Ellip. Hình Ellip được xác định bởi hai bán trục mà ta hay gọi là: bán trục lớn và bán trục nhỏ. Ta cho Ellip xoay quanh bán trục nhỏ ta sẽ thu được hình Ellipsoid. Kích thước và hình dạng của Ellipsoid được xác định bởi bán trục lớn a và bán trục nhỏ b, hay bởi a và hệ số dẹt f :</p>
+<ul>
+  <li>f = (a - b) / a.</li>
+  <p>Vì hệ số f rất nhỏ nên người ta thường dùng giá trị 1/f</p>
+  <li>A = 6378137.0 m</li>
+  <li>1/f = 298.25722563</li>
+</ul>
+
+<h5>4.3.2.3.3. Hệ tọa độ quy chiếu</h5>
+<p>Để thuận tiện cho sử dụng người ta phải nghiên cứu cách thể hiện bề mặt trái đất lên trên mặt phẳng của bản đồ. Do đó phải thực hiện phép chiếu bề mặt cong của trái đất lên mặt phẳng và hệ toạ độ quy chiếu ra đời. Hệ toạ độ này luôn lấy hệ toạ độ địa lý làm cơ sở.</p>
+
+<p>Hệ toạ độ quy chiếu được đặc trưng bởi hai trục x theo phương ngang và y theo phương thẳng đứng. Gốc toạ độ là giao điểm của hai trục này. Hai trục giao nhau đồng thời chia mặt phẳng làm 4 phần tương ứng với 4 phần trong hệ toạ độ địa lý. Một điểm trên mặt được xác định được xác định bởi cặp giá trị (x, y).</p>
+<%= image_tag ("/images/g5.jpg"), class: "img-responsive" %>
+<p><em>Hình 11: Mặt phẳng hệ tọa độ quy chiếu</em></p>
+
+<p>Có rất nhiều phép chiếu bề mặt cong của trái đất lên mặt phẳng song về cơ bản ta có thể hiểu như sau. Lấy một mảnh bìa cuộn xung quanh bề mặt cầu trong hệ toạ độ địa lý theo một hình trụ đứng. Từ tâm của bề mặt cong ta vẽ các tia cắt các điểm giao giữa kinh tuyến và vĩ tuyến, đồng thời kéo dài cắt mặt trụ. Thực chất của việc này là chiếu các ô lưới lên bề mặt phẳng. Mở tờ bìa ra ta có kết quả của phép chiếu. Nhìn vào tấm bìa ta nhận thấy, các ô lưới đã thay đổi khá nhiều (biến dạng), co lại hoặc dãn ra. Càng xa đường xích đạo thì sự biến dạng càng lớn. Điều này gây nên sự thay đổi về hình dạng, kích thước, khoảng cách của dữ liệu không gian.</p>
+<%= image_tag ("/images/g6.jpg"), class: "img-responsive" %>
+<p><em>Hình 12: Minh họa cách chiếu mặt cong lên mặt phẳng</em></p>
+
+<p>Sau đó người ta dùng các công thức toán học để tương ứng toạ độ của bề mặt cong lên toạ độ mặt phẳng chiếu.</p>
+<p>Các phép chiếu khác nhau gây ra các biến dạng bản đồ khác nhau nên việc sử dụng phép chiếu nào là dựa vào mục đích của bản đồ và độ chính xác của dữ liệu.</p>
+
+<h5>Các phép chiếu cơ bản</h5>
+Trong phần này ta sẽ tìm hiểu ba phép chiếu cơ bản và thường được sử dụng nhất đó là phép chiếu với mặt chiếu: <b>mặt hình nón</b>, <b>mặt hình trụ</b> và <b>mặt phẳng phương vị</b>.
+
+<p>Bước đầu tiên khi tiến hành phép chiếu này là tạo ra một hay một tập các điểm tiếp xúc. Các điểm tiếp xúc này được gọi là các tiếp điểm hay là tiếp tuyến (trong trường hợp là đường thẳng). Các điểm này có vai trò rất quan trọng, vì độ biến dạng của phép chiếu trên những điểm này bằng không. Độ biến dạng sẽ tăng khi khoảng cách giữa điểm chiếu và điểm tiếp xúc tăng.</p>
+
+<p><b>Mặt hình nón</b> Để thực hiên phép chiếu này người ta cho dùng một mặt hình nón “úp” lên bề mặt cầu. Đường thẳng tiếp xúc giữa mặt nón và mặt cầu là một vĩ tuyến và được gọi là vĩ tuyến chuẩn. Các đường kinh tuyến sau khi chiếu mặt nón sẽ thành những đường thẳng đứng, các đường vĩ tuyến sẽ tạo thành những đường tròn.
+</p>
+<p>Sau khi thực hiện phép chiếu, người ta sẽ cắt hình nón dọc theo một kinh tuyến bất kỳ, lúc này ta sẽ được kết quả của phép chiếu trên bề mặt nón. Sự giao nhau giữa những đường thẳng và cung tròn sẽ tạo nên một mặt lưới. Đường thẳng đối diện với đường cắt được gọi là kinh tuyến trung tâm.</p>
+<p>Càng xa vĩ tuyến chuẩn độ biến dạng càng tăng. Do đó để tăng độ chính xác người ta cắt bỏ phần đỉnh của mặt nón hay ta không tiến hành chiếu lên vùng này. Phép chiếu này thường được dùng cho việc chiếu các vùng có các vĩ tuyến trung bình chạy qua và hướng theo chiều đông - tây.</p>
+<%= image_tag ("/images/g7.jpg"), class: "img-responsive" %>
+<p><em>Hình 13: Mặt chiếu hình nón</em></p>
+
+<p><b>Mặt hình trụ</b></p>
+<p>Giống như phép chiếu mặt nón, phép chiếu này cũng có một đường thẳng tiếp tuyến. Khi sử dụng mặt trụ, người ta phân làm 3 loại tuỳ thuộc vào vị trí tương đối của mặt trụ so với mặt cầu:</p>
+<p>Hình trụ được đặt theo phương thẳng đứng và tiếp xúc với mặt cầu theo một vị tuyến, thường là đường xích đạo. Gọi là phép chiếu Mercator.</p>
+<p>Hình trụ được đặt theo phương nằm ngang, đường thẳng tiếp xúc là một kinh tuyến. Gọi là phép chiếu Transverse.</p>
+<p>Hình trụ đặt xiên và tiếp xúc với mặt cầu theo một đường tròn có bán kính lớn nhất (bằng với bán kính đường xính đạo). Gọi là phép chiếu Oblique.</p>
+<p>Phép chiếu thường được sử dụng nhất là Mercator. Trong phép chiếu này, các đường kinh tuyến sẽ được chiếu thành những đường thẳng đứng cách đều nhau, các đường vĩ tuyến sẽ trở thành những đường nằm ngang khoảng cách không đều nhau; tăng dần về phía hai cực. Do đó biến dạng sẽ tăng dần về phía hai cực. Sau khi thực hiện phép chiếu, người ta sẽ cắt mặt hình trụ dọc theo một kinh tuyến, trải ra trên mặt phẳng ta sẽ thu được kết quả.</p>
+<%= image_tag ("/images/g8.jpg"), class: "img-responsive" %>
+<p><em>Hình 14: Mặt chiếu hình trụ</em></p>
+
+<p><b>Mặt phẳng phương vị</b></p>
+<p>Là phép chiếu dữ liệu bản đồ lên một mặt phẳng tiếp xúc với mặt cầu. Điểm tiếp xúc này có thể là: nằm tại hai cực, tại đường xích đạo, hoặc tại một vị trí bất kỳ nằm giữa. Vị trí của điểm tiếp xúc cho ta biết vị trí tương đối của mặt phẳng chiếu với mặt cầu và tạo nên ba kiểu chiếu khác nhau: <b>polar</b>, <b>equatorial</b> và <b>oblique</b>.</p>
+<%= image_tag ("/images/g9.jpg"), class: 'img-responsive' %>
+<p><em>Hình 15: Các vị trí của mặt phẳng phương vị</em></p>
+
+<p>Mặt phẳng chiếu tiếp xúc với cực của mặt cầu là kiểu chiếu đơn giản nhất và cũng hay dùng nhất. Trong phép chiếu này, các đường kinh tuyến sẽ được chiếu thành một chùm đường thẳng giao nhau ở điểm cực, vĩ tuyến là các đường tròn có cùng tâm là cực của mặt cầu. Góc giữa các đường kinh tuyến được bảo tồn.</p>
+

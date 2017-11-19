@@ -1,0 +1,38 @@
+<%= image_tag ('/images/db4.jpg'), class: 'img-responsive' %>
+<p class="text-center">Hình 4:Kiến trúc 3 mức</p>
+
+<h4>Kiến trúc 3 mức</h4>
+<ul>
+  <li><p>Mức trong (lược đồ trong) Mô tả cấu trúc dữ liệu vật lý.</p></li>
+  <li>
+    <p>Mức quan niệm (lược đồ quan niệm)</p>
+    <ol>
+      <li><p>Mô tả cấu trúc toàn thể CSDL cho 1 cộng đồng người sử dụng, gồm thực thể, kiểu dữ liệu mối liên hệ và ràng buộc.</p></li>
+      <li><p>Che bớt các chi tiết của cấu trúc vật lý.</p></li>
+    </ol>
+  </li>
+  <li>
+    <p>Mức ngoài (lược đồ ngoài)</p>
+    <ol>
+      <li><p>Còn gọi là mức khung nhìn (view).</p></li>
+      <li><p>Mô tả một phần CSDL mà một nhóm người dùng quan tâm đến và che dấu phần còn lại của CSDL đối với nhóm người dùng đó.</p></li>
+    </ol>
+  </li>
+  <li>
+    <p>Độc lập dữ liệu</p>
+    <ol>
+      <li><p> Độc lập logic : Khả năng thay đổi lược đồ quan niệm mà không thay đổi lược đồ ngoài hoặc các chương trình ứng dụng.</p></li>
+      <li><p>Độc lập vật lý: Khả năng thay đổi lược đồ trong mà không làm thay đổi lược đồ quan niệm cũng như lược đồ ngoài.</p></li>
+    </ol>
+  </li>
+</ul>
+
+
+<h4>Kiến trúc Client/Server</h4>
+<%= image_tag ('/images/db5.png'), class: 'img-responsive' %>
+<p class="text-center">Hình 5: Kiến trúc Client/Server</p>
+
+<h4>Kiến trúc phân tán</h4>
+<%= image_tag ('/images/db6.png'), class: 'img-responsive' %>
+<%= image_tag ('/images/db7.png'), class: 'img-responsive' %>
+<p class="text-center">Hình 6: Kiến trúc phân tán</p>

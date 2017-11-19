@@ -1,0 +1,159 @@
+<p>Một hệ GIS phải đảm bảo được 6 chức năng cơ bản sau:</p>
+<ul>
+  <li><p>Capture: thu thập dữ liệu. Dữ liệu có thể lấy từ rất nhiều nguồn, có thể là bản đồ giấy, ảnh chụp, bản đồ số…</p></li>
+  <li><p>Store: lưu trữ. Dữ liệu có thể được lưu dưới dạng vector hay raster.</p></li>
+  <li><p>Query: truy vấn (tìm kiếm). Người dùng có thể truy vấn thông tin đồ hoạ hiển thị trên bản đồ.</p></li>
+  <li><p>Analyze: phân tích. Đây là chức năng hộ trợ việc ra quyết định của người dùng. Xác định những tình huống có thể xảy ra khi bản đồ có sự thay đổi.</p></li>
+  <li><p>Display: hiển thị. Hiển thị bản đồ.</p></li>
+  <li><p>Output: xuất dữ liệu. Hỗ trợ việc kết xuất dữ liệu bản đồ dưới nhiều định dạng: giấy in, Web, ảnh, file …</p></li>
+</ul>
+
+<%= image_tag ("/images/g10.jpg"), class: "img-responsive" %>
+<p><em>Hình 16: Quan hệ giữa các nhóm chức năng của GIS</em></p>
+
+<h4>4.4.1. Thu thập dữ liệu</h4>
+<p>Thu thập dữ liệu là quá trình thu nhận dữ liệu theo khuân mẫu được áp dụng cho GIS. Mức độ đơn giản nhất của thu thập dữ liệu là chuyển đổi khuân dạng mẫu có sẵn từ bên ngoài. Trong trường hợp này, GIS phải có các tiện ích để hiểu được các khuân dạng mẫu dữ liệu chuẩn khác nhau để trao đổi. GIS còn phải có khả năng nhập các ảnh bản đồ. Trong thực tế, nhiều kỹ thuật trắc địa được áp dụng để thu thập dữ liệu thô, bao gồm thu thập dữ liệu về bề mặt trái đất như địa hình, địa chất học và thảm thực vật nhờ trắc địa đo đặc hay ảnh chụp từ vệ tinh, máy bay. Các dữ liệu như kinh tế - xã hội thu thập từ điều tra phỏng vấn hay chuyển đổi từ các bài tư liệu viết. Bản đồ vẽ bằng tay trên giấy phải được số hoá sang dạng raster. Việc sử dụng ảnh vệ tinh hay ảnh chụp từ máy bay được xem là nguồn dữ liệu quan trọng khi nghiên cứu tài nguyên thiên nhiên và đo vẽ bản đồ địa hình.</p>
+<p>Đa số nguồn gốc thông tin không gian là các bản đồ in hay bản đồ dưới khuôn mẫu tương tự. Để các dữ liệu này được sử dụng trong GIS thì chúng cần được số hoá. Ở mức thủ công thì chỉ có thể số hoá các đặc trưng bản đồ và nhập thuộc tính mô tả các đặc trưng đó. Còn ở mức tự động hoá cao hơn là số hoá bản đồ bằng máy quét ảnh để phát sinh ảnh số bản đồ đầy đủ. Đầu ra của máy quét là ma trận của các giá trị điểm ảnh 2D, có thể được sử dụng cho công việc vector hoá để tạo ra bản đồ mã hoá dữ liệu, kiểm chứng và sửa lỗi để có được dữ liệu phù hợp.</p>
+<p>Quá trình thu thập dữ liệu luôn gắn liền với quá trình xử lý dữ liệu. Chúng ta có ba mô hình quan niệm của thông tin không gian là: mô hình hướng đối tượng, mạng và bề mặt. Quá trình phân tích trên cơ sở các cách nhìn khác nhau đòi hỏi dữ liệu phải được biểu diễn và tổ chức cho phù hợp. Vì vậy cần cung cấp phương tiện cho người sử dụng GIS thay đổi cấu trúc dữ liệu để thích nghi với các yêu cầu khác nhau. Điều này đòi hỏi cần phải có các chức năng thay đổi cách biểu diễn, thay đổi phân lớp, làm đơn giản hoá hay tổng quát hoá dữ liệu, biến đổi giữa hệ thống trục toạ độ khác nhau và biến đổi các phép chiếu bản đồ. Các thao tác này được xem là tiền phân tích không gian. Mức độ xử lý dữ liệu thô khác nhau phụ thuộc vào mục đích của ứng dụng GIS.</p>
+<p>Một số công cụ phân tích của GIS phụ thuộc chặt chẽ vào các mô hình dữ liệu raster, do đó nó đòi hỏi quá trình biến đổi mô hình dữ liệu vector sang dữ liệu raster, quá trình này được gọi là raster hoá. Một số công cụ phân tích khác lại làm việc chủ yếu với mô hình vector, nên đòi hỏi quá trình biến đổi ngược từ raster sang vector, hay còn gọi là vector hoá. Raster hoá là quá trình phân tích đường (line) hay miền (polygon) thành các điểm ảnh (pixel). Ngược lại, vector hoá là quá trình tập hợp các điểm ảnh để tạo thành đường hay miền. Dữ liệu ban đầu của ta thông thường là dưới dạng raster nên nếu dữ liệu không có cấu trúc tốt thì việc nhận dạng mẫu sẽ rất phức tạp.</p>
+<p>Khi so sánh dữ liệu từ các nguồn khác nhau, vấn đề thường nảy sinh là sử dụng hai hay nhiều phân lớp để mã hoá cho cùng hiện tượng. Để nhận ra các khía cạnh khác nhau của hiện tượng với mức độ chi tiết khác nhau, cần phải có tiến trình xấp xỉ hoá để biển đổi về cùng một phân lớp.</p>
+<p>Trong việc tích hợp dữ liệu bản đồ, vấn đề nảy sinh là hệ thống toạ độ của chúng được đo, vẽ trên cơ sở nhiều phép chiếu bản đồ khác nhau. Các dữ liệu này không thể tích hợp trên cùng bản đồ nếu không biển đổi chúng về cùng một hệ trục toạ độ.</p><br>
+
+<h4>4.4.2. Lưu trữ và truy cập dữ liệu</h4>
+<p>Lưu trữ dữ liệu liên quan đến tạo lập CSDL không gian (đồ hoạ, bản đồ). Nội dung của CSDL này có thể bao gồm tổ hợp dữ liệu vector hoặc/và dữ liệu raster, dữ liệu thuộc tính để nhận diện hiện tượng tham chiếu không gian. Thông thường dữ liệu thuộc tính của GIS trên cơ sở đối tượng được lưu trong bảng, chúng chứa khoá chính là một chỉ danh duy nhất tương ứng với đối tượng không gian, kèm theo nhiều mục dữ liệu thuộc tính khác. Chỉ danh đối tượng không gian duy nhất được dùng để liên kết giữa dữ liệu thuộc tính và dữ liệu không gian tương ứng. Trong bảng thuộc tính cũng có thể bao gồm cả giá trị không gian như độ dài đường, diện tích vùng mà chúng đã được dẫn xuất từ biểu diễn dữ liệu hình học.</p>
+<p>Với dữ liệu raster thì các tệp thuộc tính thông thường chứa dữ liệu liên quan đến lớp hiện tượng tự nhiên thay cho các đối tượng rời rạc. Việc lựa chọn mô hình raster hay mô hinh vector để tổ chức dữ liệu không gian được thực hiện khi thu thập dữ liệu vì mỗi mô hình tương ứng với các tiếp cận khác nhau. Thông thường CSDL GIS cho khả năng quản trị cả hai mô hình không gian nói trên, khi xây dựng CSDL không gian thì nhất thiết phải liên kết bảng dữ liệu liên quan đến hiện tượng tương ứng.</p>
+<p>Theo thuật ngữ của hệ quản trị CSDL thì các mô hình vector và raster được xem như những thí dụ của mô hình quan niệm. Chúng mô tả các quan niệm liên quan đến ứng dụng thế giới thực được biểu diễn trong CSDL. Các mô hình quan niệm được mô tả theo nhiều cấp bậc trừu tượng, trong đó các mô hình vector và raster là ở mức trừu tượng thấp nhất. Chúng gần với biểu diễn dữ liệu máy tính hơn các mô hình trên cơ sở dữ liệu đối tượng, mạng và bề mặt. Khái niệm mô hình dữ liệu lôgic được sử dụng để đề cập đến cách mà DBMS tổ chức mô hình quan niệm thành tệp, bản ghi, chỉ số. Ngày nay, công nghệ CSDL truyền thống không còn thích hợp với việc quản lý dữ liệu địa lý. Một số hệ GIS được sử dụng rộng rãi đã xây dựng CSDL trên cơ sở tổ hợp mô hình quan hệ quản lý thuộc tính phi hình học và lựợc đồ chuyên dụng, phi quan hệ để lưu trữ, xử lý dữ liệu không gian. Một vài GIS khác đã lợi dụng các phương tiện của lược đồ lưu trữ CSDL quan hệ để quản lý cả hai loại dữ liệu hình học và phi hình học.</p>
+<p>Phương tiện truy nhập trong CSDL GIS bao gồm cả phương tiện có sẵn của CSDL quan hệ chuẩn và khả năng xây dựng câu hỏi truy vấn để tìm thông tin mà giá trị của chúng bằng hoặc nằm trong khoảng xác định. Đặc tính đặc biệt theo vị trí đối với hệ toạ độ nào đó và theo các quan hệ không gian. Do nhu cầu khai thác thông tin trên CSDL không gian thường bao gồm phương pháp chỉ số không gian đặc biệt. Câu hỏi không gian thường là tìm ra đối tượng nằm trong hay trên các biên của cửa sổ hình chữ nhật. Khai thác dữ liệu trên cơ sở vị trí hay quan hệ không gian được xem như là nền tảng của thâm nhập CSDL GIS.</p><br>
+
+<h4>4.4.3. Tìm kiếm và phân tích dữ liệu không gian</h4>
+<p>Tìm kiếm và phân tích dữ liệu không gian. Đây là chức năng đóng vai trò rất quan trọng trong GIS. Nó tạo nên sức mạnh thực sự của GIS so với các phương pháp khác. Tìm kiếm và phân tích dữ liệu không gian giúp tìm ra những đối tượng đồ hoạ theo các điều kiện đặt ra hay hỗ trợ việc ra quyết định của người dùng GIS.</p>
+<p>Có rất nhiều các phương pháp tìm kiếm và phân tích dữ liệu không gian, các phương pháp khác nhau thường tạo ra các ứng dụng GIS khác nhau. Sau đây là một số phương pháp được dùng phổ biến nhất:</p><br>
+
+<h5>4.4.3.1. Buffer ( Tìm kiếm dữ liệu trong vùng không gian )</h5>
+<p>Buffer hay còn gọi là truy vấn không gian trên cơ sở các quan hệ không gian giữa các đối tượng. Các quan hệ này thông thường nói lên vị trí tương đối của đối tượng này với đối tượng kia. Phương pháp buffer được chia làm nhiều loại (phép toán) khác nhau, nhưng cách thức xử lý thì luôn tuân theo các bước cơ bản sau đây:</p>
+<ul>
+  <li><p>Chọn ra một hay nhiều đối tượng trên bản đồ, gọi là các đối tượng gốc.</p></li>
+  <li><p>Áp dụng một quan hệ không gian để tìm ra các đối tượng khác mà có quan hệ đặc biệt với các đối tượng gốc.</p></li>
+  <li><p>Hiển thị tập đối tượng tìm thấy cả trên dữ liệu không gian và thuộc tính</p></li>
+</ul>
+
+<p><strong>Một số phép toán buffer thông dụng</strong></p>
+<p>Tìm các đối tượng nằm bên trong các đối tượng khác. Phép toán này xác định quan hệ “bao kín” giữa các đối tượng không gian. Đường thẳng bao gồm nhiều điểm, một đa giác (polygon) có thể bao gồm nhiều đường thẳng hoặc gồm các đa giác con khác.</p>
+<p>Tìm các đối tượng cắt các đối tượng khác. Phép toán này xác định các đối tượng có giao điểm hay nằm chồng lên các đối tượng khác. Hai đa giác giao nhau nếu chúng có một miền chung. Hai đường thẳng cắt nhau nếu chúng có một điểm chung. Một đường thẳng giao với một đa giác khi nó nằm một phần hay toàn bộ trong đa giác.</p>
+<p>Tìm các đối tượng liền kề với các đối tượng khác. Đây là kiểu tìm kiếm trong đó các đối tượng có chung đường bao (biên). Quan hệ này chỉ áp dụng cho đường thẳng hoặc đa giác.</p>
+<p>Tìm các đối tượng nằm bên trong hoặc bên ngoài một khoảng cách xác định. Kiểu tìm kiếm này được sử dụng trong việc xác định các đối tượng xung quanh một hay nhiều các điểm mốc. Quá trình thực hiện bao gồm việc tạo ra một vùng đệm quanh các điểm mốc này và sau đó xác định các đối tượng căn cứ vào vị trí của chúng so với vùng đệm tạo ra.</p>
+<p>Một bài toán rất điển hình cho phương pháp buffer này là bài toán về “Nhà máy hoá chất và các bệnh viện”. Mục đích của bài toán là xác định các vị trí thuận tiện nhất trên bản đồ cho việc di dời các bệnh viện trong trường hợp nhà máy hoá chất gặp sự cố. Các nhà máy hoá chất và bệnh viện được biểu diễn trên bản đồ bằng các đối tượng điểm (points). Mỗi nhà máy bao gồm các thông tin chi tiết về loại hoá chất sản xuất và mức độ phát tán chất độc ra môi trường trong các điều kiện thời tiết khác nhau. Khi có sự cố, vùng nguy hiểm cần di dời sẽ được thể hiện trên bản đồ.</p>
+<p>Từ đó, chúng ta có thể biết được nên chuyển bệnh viện đến vùng nào là an toàn và thuận tiện nhất.
+</p>
+<%= image_tag ("/images/g11.jpg"), class: 'img-responsive' %>
+<p><em>Hình 17: Buffer bên trong một hình có bán kính xác định</em></p><br>
+
+<h5>4.4.3.2. Geocoding (Tìm kiếm theo địa chỉ)</h5>
+<p>Một đối tượng trên bản đồ bao giờ cũng được biểu diễn bằng một kiểu dữ liệu đồ hoạ. Phần đồ hoạ này có thể thu được bằng cách số hoá hay quét ảnh bản đồ.</p>
+<p>Tuy nhiên, khi ta đã có bản đồ (bản đồ số), chúng ta cũng có thể xác định được phần đồ hoạ biểu diễn đối tượng hay là vị trí, hình dạng của đối tượng thông qua các dữ liệu mô tả vị trí của nó ví dụ: số nhà, tên đường, tên quận… Geocoding (hay address matching) là một tiến trình nhằm xác định các đối tượng trên cơ sở mô tả vị trí của chúng. Đây là một kỹ thuật rất nổi tiếng, có mặt trong rất nhiều ứng dụng của GIS.
+</p>
+<p>Người ta gọi một geocoding service là quá trình chuyển đổi toàn bộ mô tả thuộc tính về vị trí sang mô tả không gian.</p>
+<p>Để tìm được vị trí thông qua địa chỉ, geocoding service phải tham chiếu đến ít nhất một nguồn dữ liệu bao gồm cả thông tin về địa chỉ (thuộc tính) và thông tin không gian (vị trí, hình dạng). Dữ liệu này được gọi là dữ liệu tham chiếu. Các gocoding service có thể thao tác trên nhiều kiểu dữ liệu tham chiếu khác nhau. Sau khi đã geocoding dữ liệu tham chiếu (tức là ánh xạ mô tả thuộc tính vào mô tả không gian). Ta có thể nhập địa chỉ của đối tượng cần tìm. Quy trình xử lý trải qua các bước sau:</p>
+<ul>
+  <li><p>Chuẩn hoá giá trị địa chỉ vừa nhập vào bằng cách tách nó thành các thành phần địa chỉ nhỏ.</p></li>
+  <li><p>Geocoding service sau đó sẽ tìm trong nguồn dữ liệu tham chiếu để xác định các đối tượng có các thành phần địa chỉ tương ứng với dữ liệu nhập vào. Mỗi kiểu geocoding service sẽ quy định các định dạng của các thành phần địa chỉ này.</p></li>
+  <li><p>Tập kết quả trả về sẽ được gán các trọng số (điểm) để tìm ra kết quả gần đúng nhất.</p></li>
+  <li><p>Geocoding service sẽ đánh dấu đối tượng vừa được tìm thấy trên bản đồ bằng một đối tượng đồ hoạ.</p></li>
+</ul>
+<%= image_tag ("/images/g12.jpg"), class: "img-responsive" %>
+<p><em>Hình 18: Kết quả tìm kiếm theo địa chỉ</em></p>
+
+<h5>4.4.3.3. Network (Phân tích mạng)</h5>
+<p>Networks là kỹ thuật được ứng dụng rất rộng rãi trong giao thông, phân phối hàng hoá và dịch vụ, vận chuyển nước hay xăng dầu trong các đường ống dài, trao đổi thông tin qua mạng viễn thông… Trong GIS, networks được mô hình dưới dạng các đồ thị một chiều hay mạng hình học. Mạng hình học này bao gồm các đối tượng đang được hiển thị trên bản đồ, mỗi đối tượng đóng vai trò là cạnh hoặc nút trong mạng.</p>
+<p>Trong GIS để thiết lập nên mối quan hệ giữa nút - cạnh và cạnh - cạnh ta cần tạo các topology cho cơ sở dữ liệu. Topology được hiểu là mối quan giữa các đối tượng trong bảng dữ liệu. Quan hệ topology giữa các đối tượng gần giống quan hệ giữa các bảng (relationship).</p>
+<p>Chúng ta có hai kiểu liên kết là nút - cạnh và cạnh - cạnh. Nút - cạnh là luật liên kết được thiết lập giữa một nút của đối tượng kiểu A với một cạnh của đối tượng kiểu B. Cạnh - cạnh là luật liên kết giữa một cạnh của đối tượng kiểu A và một cạnh của đối tượng kiểu B qua một tập các nút.</p>
+<p>Khi đã tạo topology và xác lập luật liên kết, một mạng lôgic đã được hình thành. Lúc này ta có thể áp dụng các thuật toán về mạng để giải quyết các bài toán đặt ra.</p>
+<%= image_tag ("/images/g13.jpg"), class: "img-responsive" %>
+<p><em>Hình 19: Kết quả tìm kiếm trên mạng giao thông</em></p><br>
+
+<h5>4.4.3.4. Overlay</h5>
+<p>Đây là kỹ thuật khó nhất và cũng là mạnh nhất của GIS. Overlay cho phép ta tích hợp dữ liệu bản đồ từ hai nguồn dữ liệu khác nhau. Người ta định nghĩa: “Overlay là quá trình chồng khít hai lớp dữ liệu bản đồ với nhau để tạo ra một lớp bản đồ mới”. Điều này tương tự như việc nhân hai ma trận để tạo ra một ma trận mới, truy vấn hai bảng cơ sở dữ liệu để tạo ra bảng mới, với overlay là gộp hai lớp trên bản đồ để tạo ra bản đồ mới. Overlay thực hiện điều này bằng cách kết hợp thông tin một lớp này với một lớp khác để lấy ra dữ liệu thuộc tính từ một trong hai lớp.</p>
+<p>Người ta chia overlay thành ba dạng phân tích khác nhau:</p>
+<ul>
+  <li><p>Point-in-polygon: chồng khít hai lớp point và polygon, đầu ra là lớp point</p></li>
+  <li><p>Line-in-polygon: chồng khít hai lớp line và polygon, đầu ra là lớp line</p></li>
+  <li><p>Polygon-in-polygon: chồng khít hai lớp polygon và polygon, đầu ra là lớp polygon</p></li>
+</ul>
+<br>
+<p>Một bài toán rất điển hình cho kỹ thuật này là bài toán về kiểm tra tình hình ngập lụt của các thửa đất trong một vùng có thiên tai. Ở đây chúng ta thấy có hai lớp: một lớp cho biết tình trạng lũ lụt trong vùng, một lớp thuộc về đất đai. Thông thường hai lớp này sẽ nằm trên hai bản đồ khác nhau vì mục đích sử dụng của chúng khác nhau. Khi cần biết tình trạng ngập lụt của từng thửa đất, người ta tiến hành chồng khít hai lớp bản đồ. Lúc này thông tin về tình trạng của thửa đất sẽ được lấy từ lớp lũ lụt chứ không phải lấy từ lớp thửa đất vì lớp thửa đất không chứa các thông tin này. Ví dụ này mô tả bài toán thuộc loại “polyon-in-polygon”.
+</p>
+<p>Qua bài toán chúng ta có thể thấy một điều rằng hai lớp mà ta đưa vào overlay phải có sự thống nhất với nhau. Thống nhất về hệ quy chiếu, thống nhất về tỷ lệ, có được điều kiện này ta mới tiến hành overlay được.
+</p>
+<p>Quá trình overlay thường được tiến hành qua 2 bước:</p>
+<ul>
+  <li><p>Xác định tọa độ các giao điểm và tiến hành chồng kít hai lớp bản đồ tại giao điểm này</p></li>
+  <li><p>Kết hợp dữ liệu không gian và thuộc tính của hai lớp bản đồ.</p></li>
+</ul>
+<p>Các phép toán overlay bao gồm: phép hợp (Union), phép giao (Intersect) và phép đồng nhất (Identity)</p>
+<p><b>Phép hợp</b> Hoạt động như toán tử Or , Đầu vào là hai lớp bản đồ kiểu là polygon</p>
+<p>Kết quả đầu ra là một lớp bản đồ mới bằng cách overlay hai miền dữ liệu dầu vào và dữ liệu thuộc tính của chúng. Điều kiện: miền dữ liệu phải là polygon</p>
+<%= image_tag ("/images/g14.jpg"), class: "img-responsive" %>
+<p><em>Hình 20: Phép hợp</em></p><br>
+
+<p><b>Phép giao</b> Hoạt động như toán tử And.</p>
+<p>Tạo ra một vùng bao phủ mới bằng cách overlay hai tập dữ liệu đầu vào</p>
+<p>Kết quả đầu ra bao gồm phần dữ liệu thuộc vào cả hai tập dữ liệu đầu vào</p>
+<%= image_tag ("images/g15.jpg"), class: "img-responsive" %>
+<p><em>Hình 21: Phép giao</em></p><br>
+
+<p><b>Phép đồng nhất</b> Tạo ra một vùng bao phủ mới bằng cách overlay hai tập dữ liệu đầu vào.</p>
+<p>Kết quả đầu bao gồm toàn bộ phần dữ liệu của lớp đầu tiên và chỉ những phần nào của lớp thứ hai được chồng khít.</p>
+<%= image_tag ("/images/g16.jpg"), class: "img-responsive" %>
+<p><em>Hình 22: Phép đồng nhất</em></p><br>
+
+<h5>4.4.3.5. Proximity (Tìm kiếm trong khoảng cận kề).</h5>
+<p>Proximity là phép tìm kiếm trên cơ sở đo khoảng cách quanh hoặc giữa các đối tượng. Khoảng cách này được tính theo khoảng cách Euclidean. Có 3 phương pháp phân tích proximity:</p>
+<p>Phương pháp thứ nhất là tìm kiếm nội dung trong vùng, trong đó vùng tìm kiếm được xác định bởi xấp xỉ tới hiện tượng có sẵn, đó chính là phương pháp buffer. Việc tìm kiếm này được thực hiện trong vùng tạo bởi mở rộng đối tượng cho trước theo một khoảng cách cho trước. Trong GIS vùng này được gọi là vùng đệm, nó được xây dựng xung quanh đối tượng điểm, đối tượng đường hay đối tượng vùng. Trong các hệ thống trên cơ sở raster thì việc tạo lập vùng đệm dược thực hiện nhờ chức năng spread.
+</p>
+<p>Phương pháp thứ hai của tìm kiếm cận kề là tìm ra các vùng nối trực tiếp với đối tượng xác định trước, chẳng hạn như tìm các mảnh đất liền kề với mảnh đất sẽ xây dựng nhà máy.
+</p>
+<p>Phương pháp thứ ba của tìm kiếm cận kề xảy ra khi cần phải tìm kiếm những vùng gần nhất tới tập các vị trí mẫu phân tán không đều. Các mẫu thường là các điểm. Tìm kiếm này thực hiện bằng cách tạo lập đa giác Thiessen, nó xác định các vùng xung quanh mỗi điểm mà gần điểm này hơn mọi điểm khác. Sơ đồ đa giác Thiessen còn được gọi là sơ đồ Voronoi. Chúng được sử dụng để lập ra bản đồ sử dụng từ các mẫu đất cách biệt.</p>
+<br>
+
+<h4>4.4.4. Hiển thị bản đồ.</h4>
+<p>Trong GIS, các đối tượng cơ sở dữ liệu không gian trong thế giới thực được mô tả dưới dạng bản đồ . Điểm mạnh của các hệ thống GIS là khả năng thể hiện nội dung địa lý các mối quan hệ về không gian giữa chúng . Cách mà GIS hiển thị các đối tượng thực thể được quy ra làm 4 loại đối tượng số cơ bản:</p>
+<ul>
+  <li><p>Đối tượng kiểu điểm (point)</p></li>
+  <li><p>Đối tượng kiểu đường (line, polyline)</p></li>
+  <li><p>Đối tượng kiểu vùng (area, polygon)</p></li>
+  <li><p>Đối tượng kiểu mô tả (annotation, text, symbol).</p></li>
+</ul>
+<p><strong>Cách phản ánh các đối tượng trên bản đồ:</strong></p>
+<ul>
+  <li><p>Bản đồ thể hiện các đối tượng địa lý thông qua mô tả bằng tập hợp các thành phần của: đường, màu sắc, ký hiệu và từ ngữ</p></li>
+  <li><p>Các thông tin đồ hoạ và mô tả cho chúng ta biết về vị trí địa lý và các thuộc tính của các đối tượng địa lý.</p></li>
+  <li><p>Mô hình dữ liệu số phản ánh lại các vị trí, tính chất và các quan hệ không gian dưới dạng số</p></li>
+  <li><p>Bản đồ số lưu trữ dữ liệu theo loại đối tượng. Bản đồ số lưu theo loại đối tượng dưới đây:</p></li>
+  <li><p>Điểm (Points): Đối tượng đơn có vị trí.Ví dụ Trạm cứu hoả, nhà Giếng</p></li>
+  <li><p>Đường (Arcs): Các đối tượng dạng tuyến. Ví dụ đường sá, sông, đường điện</p></li>
+  <li><p>Vùng (Polygons): Vùng có diện tích, định nghĩa bởi đường bao . Ví dụ thửa loại đất .</p></li>
+</ul>
+<p>Để phản ánh toàn bộ các thông tin cần thiết của bản đồ dưới dạng đối tượng số, các đối tượng địa lý còn được phản ánh theo cấu trúc phân mảnh và phân lớp thông tin.
+</p><br>
+
+<p><strong>Cấu trúc phân mảnh:</strong></p>
+<p>Một đối tượng địa lý về mặt không gian có thể liên tục trên một phạm vi rộng. Tuy nhiên trong cơ sở dữ liệu GIS, do hạn chế về các lý do kỹ thuật như khả năng lưu trữ, xử lý, quản lý dữ liệu mà các đối tượng địa lý lưu trữ dưới dạng cách mảnh (mapsheet, tile). Tuy nhiên khái niệm chia mảnh trong cơ sở dữ liệu GIS không hoàn toàn đồng nhất với khái niệm chia mảnh bản đồ thông thường. Một mảnh (tile) trong cơ sở dữ liệu GIS có thể có hình dạng bất kỳ miễn sau cho phù hợp với khả năng quản lý và xử lý của hệ thống. Trong một số hệ thống GIS đã có, người dùng phải tự quản lý cách chia mảnh của mình. Tuy nhiên xu hướng hiện nay, các hệ thống GIS đã cung cấp những công cụ cho phép người sử dụng tự động quản lý các mảnh trong cơ sở dữ liệu. Một số GIS tiến bộ hơn, dựa trên các kỹ thuật mới của công nghệ hướng đối tượng, về mặt vật lý, các đối tượng địa lý bị chia cắt theo từng mảnh, nhưng đối với người sử dụng, các đối tượng là liên tục không bị chia cắt.</p>
+<p><strong>Cấu trúc phân lớp thông tin:</strong></p>
+<p>Một trong những bước quan trọng xây dựng cơ sở dữ liệu GIS là phân loại các lớp thông tin (layer, class). Hệ thống GIS lưu trữ các đối tượng địa lý theo các lớp thông tin. Mỗi lớp thông tin lưu trữ một loại các đối tượng có chung một tính chất, đặc điểm giống nhau. Thiết kế các lớp thông tin rất quan trọng đối với bất kỳ một hệ thống GIS nào. Cách phân lớp thông tin sẽ ảnh hưởng rất lớn đến tính hiệu quả, khả năng xử lý và sử dụng lâu dài của cơ sở dữ liệu không gian.
+</p>
+<p><strong>Một số nguyên tắc khi thiết kế các lớp thông tin:</strong></p>
+<ul>
+  <li><p>Có các lớp thông tin cơ bản: các ứng dụng khác nhằm cần đến những lớp thông tin cơ bản (thông tin nền) Ví dụ như:</p>
+  <ul>
+    <li><p>Lớp thông tin cơ sở toán học bản đồ: điểm khống chế, khung, điểm độ cao, trắc địa nhà nước, v..v..</p></li>
+    <li><p>Lớp thông tin về địa hình</p></li>
+    <li><p>Lớp thông tin về hệ thống thuỷ văn</p></li>
+    <li><p>Lớp thông tin về hệ thống đường giao thông</p></li>
+  </ul>
+  </li>
+</ul>
+<p>Đủ các lớp thông tin chuyên đề: Tuỳ từng ứng dụng và yêu cầu cụ thể trước mắt, việc chọn lựa các lớp thông tin chuyên đề được lưu trữ trong cơ sở dữ liệu và thứ tự nhập vào là quan trọng. Nó ảnh hưởng trực tiếp đến giá thành và thời gian xây dựng cơ sở dữ liệu GIS</p>
+<p>Gộp các đối tượng thành một lớp thông tin: không quá chi tiết (để tránh có quá nhiều lớp thông tin phải quản lý) cũng như không quá tổng quát (khó khăn khi muốn xử lý riêng biệt).</p>
+<br>
+<h4>4.4.5. Xuất dữ liệu</h4>
+<p>Hầu hết các phần mềm GIS đều hỗ trợ việc kết nối và truy xuất dữ liệu dưới nhiều định dạng : giấy in, web, hình ảnh, file …</p>
