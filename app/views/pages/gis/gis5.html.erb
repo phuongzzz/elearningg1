@@ -1,0 +1,30 @@
+<p>Trong các mô hình biểu diễn dữ liệu của GIS, chúng ta thường nhắc đến một khái niệm là feature. Theo định nghĩa của ISO (International Standard Organization): “Feature là sự trừu tượng hoá của một sự vật trong thế giới thực.</p>
+<p>Trong đó, thuộc tính của feature chính là đặc điểm mô tả feature đó”.</p>
+<br>
+<h2>4.5.1. Có 3 mô hình dữ liệu trong GIS</h2>
+<ul>
+  <li><p>Modelling with vector data: mô hình dữ liệu vector</p></li>
+  <li><p>Modelling with taster data: mô hình dữ liệu raster</p></li>
+  <li><p>Modelling with triangulated data: mô hình TIN</p></li>
+</ul>
+<br>
+<h3>4.5.1.1. Mô hình dữ liệu vector.</h3>
+<p>Mô hình dữ liệu vector xem các sự vật, hiện tượng là tập các thực thể không gian cơ sở và tổ hợp của chúng. Trong mô hình 2D thì các thực thể cơ sở bao gồm: điểm (point), đường (line), vùng (polygon). Các thực thể sở đẳng được hình thành trên cở sở các vector hay toạ độ của các điểm trong một hệ trục toạ độ nào đó. Loại thực thể cơ sở được sử dụng phụ thuộc vào tỷ lệ quan sát hay mức độ khái quát. Với bản đồ có tỷ lệ nhỏ thì thành phố được biểu diễn bằng điểm (point), đường đi, sông ngòi được biểu diễn bằng đường (line). Khi tỷ lệ thay đổi kéo theo sự thay đổi về thực thể biểu diễn. Thành phố lúc này sẽ được biểu diễn bởi vùng có đường ranh giới. Khi tỷ lệ lớn hơn, thành phố có thể được biểu diễn bởi tập các thực thể tạo nên các đối tượng nhà cửa, đường sá, các trình tiện ích,… Nói chung mô hình dữ liệu vector sử dụng các đoạn thẳng hay các điểm rời rạc để nhận biết các vị trí của thế giới thực.</p>
+<p>Trong mô hình vector người ta trừu tượng hoá các sự vật hiện tượng và gọi chúng là các feature (như phần đĩnh nghĩa ở mục 2.1). Các feature được biểu diễn bằng các đối tượng hình học: point, line, polygon. Các biểu diễn này áp dụng cho những đối tượng đơn có hình dạng và đường bao cụ thể. </p>
+<br>
+<%= image_tag ("/images/g24.jpg"), class: "img-responsive" %>
+<p><i>Hình 23: Bản đồ với mô hình dữ liệu Vector</i></p>
+<br>
+<p>Trong cách biểu diễn này, người ta định nghĩa:</p>
+<p><strong>Feature</strong> là một đối tượng trên bản đồ có hình dạng và vị trí xác định, có các thuộc tính cùng với hành vi cụ thể. </p>
+<p><strong>Feature Class</strong> là một tập các feature có cùng kiểu tức là tập các point, line, hay polygon. Các feature class tương đương với một lớp trên bản đồ.
+</p>
+<p><strong>Feature Dataset</strong> là tập các feature class hay tập hợp các lớp trên cùng một hệ toạ độ. Feature dataset tương đương với một bản đồ.</p>
+<br>
+<p><strong>Các thành phần dữ liệu </strong></p>
+<p>Trong feature dataset, mỗi point được lưu dưới một toạ độ đơn tương ứng, line được lưu dưới một chuỗi các điểm có toạ độ x, y cho trước, polygon được lưu thành một tập các điểm có toạ độ x, y xác định những đoạn thẳng và đóng kín. </p>
+<br>
+<p><strong>Points </strong>biểu diễn các feature không có miền bao hay độ dài, nhiều khi nó biểu diễn các feature có kích thước quá nhỏ so với tỷ lệ của bản đồ.
+</p>
+<%= image_tag ("/images/g25.jpg"), class: "img-responsive" %>
+<p><i>Hình 24: Đối tượng point trên bản đồ.</i></p>

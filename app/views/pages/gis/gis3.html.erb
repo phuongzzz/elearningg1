@@ -1,9 +1,13 @@
 <h4>4.3.1. Tham khảo địa lý</h4>
 <p>Các thông tin địa lý hoặc chứa những tham khảo địa lý hiện (chẳng hạn như kinh độ, vĩ độ hoặc toạ độ lưới quốc gia), hoặc chứa những tham khảo địa lý ẩn (như địa chỉ, mã bưu điện, tên vùng điều tra dân số, bộ định danh các khu vực rừng hoặc tên đường). Mã hoá địa lý là quá trình tự động thường được dùng để tạo ra các tham khảo địa lý hiện (vị trí bội) từ các tham khảo địa lý ẩn (là những mô tả, như địa chỉ). Các tham khảo địa lý cho phép định vị đối tượng (như khu vực rừng hay địa điểm thương mại) và sự kiện (như động đất) trên bề mặt quả đất phục vụ mục đích phân tích.</p>
-
+<br>
+<%= image_tag ("/images/g29.png"), class: "img-responsive" %>
 <h4>4.3.2. Mô hình Vector và Raster</h4>
 <p>Hệ thống thông tin địa lý làm việc với hai dạng mô hình dữ liệu địa lý khác nhau về cơ bản - mô hình vector và mô hình raster. Trong mô hình vector, thông tin về điểm, đường và vùng được mã hoá và lưu dưới dạng tập hợp các toạ độ x,y. Vị trí của đối tượng điểm, như lỗ khoan, có thể được biểu diễn bởi một toạ độ đơn x,y. Ðối tượng dạng đường, như đường giao thông, sông suối, có thể được lưu dưới dạng tập hợp các toạ độ điểm. Ðối tượng dạng vùng, như khu vực buôn bán hay vùng lưu vực sông, được lưu như một vòng khép kín của các điểm toạ độ.</p>
 <p>Mô hình vector rất hữu ích đối với việc mô tả các đối tượng riêng biệt, nhưng kém hiệu quả hơn trong miêu tả các đối tượng có sự chuyển đổi liên tục như kiểu đất hoặc chi phí ước tính cho các bệnh viện. Mô hình raster ddược phát triển cho mô phỏng các đối tượng liên tục như vậy. Một ảnh raster là một tập hợp các ô lưới. Cả mô hình vector và raster đều được dùng để lưu dữ liệu địa lý với nhưng ưu điểm, nhược điểm riêng, Các hệ GIS hiện đại có khả năng quản lý cả hai mô hình này.</p>
+<br>
+<%= image_tag ("/images/g30.gif"), class: "img-responsive" %>
+<br>
 
 <h5>4.3.2.1. Mô hình Vector</h5>
 <p>Trong mô hình vector, thông tin về điểm, đường và vùng được mã hoá và lưu dưới dạng tập hợp các toạ độ x,y. Vị trí của đối tượng điểm, như lỗ khoan, có thể được biểu diễn bởi một toạ độ đơn x,y. Ðối tượng dạng đường, như đường giao thông, sông suối, có thể được lưu dưới dạng tập hợp các toạ độ điểm. Ðối tượng dạng vùng, như khu vực buôn bán hay vùng lưu vực sông, được lưu như một vòng khép kín của các điểm toạ độ.</p>
