@@ -1,0 +1,107 @@
+<h2>4.7.1.Các lĩnh vực dùng chung, chia sẽ kỹ thuật và cung cấp dữ liệu cho GIS.</h2>
+<br>
+<h3>4.7.1.1 Trắc địa:</h3>
+<p>Trắc địa là khoa học về đo đạc và xác định vị trí của các đối tượng trên mặt trái đất. Trong thiết kế đường, mô hình DEM được sử dụng rất nhiều: tính khối lượng, hiển thị 3 chiều. Các phát triển mới trong công nghệ: </p>
+<ul>
+  <li><p>Thiết bị đo đạc máy đo điện tử “total station “</p></li>
+  <li><p>Hệ thống định vị toàn cầu GPS (Global Positioning System)</p></li>
+  <li><p>Liên kết trực tiếp giữa thiết bị trắc địa và cơ sở dữ liệu không gian.</p></li>
+  <li><p>Đặc điểm trong lĩnh vực này:</p></li>
+  <li><p>Tỷ lệ lớn, đo đạc với sự chính xác đến mm độ phân giải trong mô hình DEM cao </p></li>
+  <li><p>Mô hình dữ liệu dùng loại vector.</p></li>
+</ul>
+<br>
+<h3>4.7.1.2 Bản đồ</h3>
+<p>Một hệ thống GIS liên quan trực tiếp đến bản đồ địa lý, hơn thế bản đồ là yếu tố quan trọng nhất trong hệ cơ sở dữ liệu trong GIS.</p>
+
+<%= image_tag ("/images/g17.jpg"), class: 'img-responsive' %>
+<br>
+<h3>4.7.1.3 Viễn Thám</h3>
+<p>Đây là lĩnh vực cung cấp dữ liệu cho GIS. Viễn thám cho phép thu thập thông tin về trái đất từ vệ tinh hay máy bay. </p>
+<p>Hai nguyên tắc chính của viễn thám dùng với GIS: </p>
+<ul>
+  <li><p>Chất lượng và giá trị dữ liệu được cải thiện qua độ chính xác của phép phân loại. </p></li>
+  <li><p> Để có đầy đủ thông tin cho tạo quyết định, cần kết hợp với các lớp thông tin khác không gian quan sát được từ ngoài không gian. Ví dụ: ranh giới hành chính</p></li>
+</ul>
+<p><strong> Đặc điểm ứng dụng trong lĩnh vực này: </strong></p>
+<ul>
+  <li><p>Tỷ lệ bao trùm nhiều tỷ lệ phụ thuộc vào độ cao bay chụp và khả năng thiết bị </p></li>
+  <li><p>Mô hình dữ liệu thu thập chủ yếu ở dạng raster </p></li>
+  <li><p>Ảnh sau khi phân loại có thể chuyển sang dạng vector hoặc input vào GIS </p></li>
+</ul>
+<br>
+<p>Viễn thám giao tiếp với GIS như là một hướng đang được phát triển hiện nay. Cả hai lĩnh vực đều đang được phát triển. </p>
+<p>Trong viễn thám, các hệ thống bao gồm các chức năng xử lý ảnh.Giao tiếp là không khó khăn về mặt kỹ thuật, tuy nhiên vẫn còn có sự không tương thích về mô hình dữ liệu, format chuẩn và độ phân giải không gian. </p>
+<p>Nhiều phần mềm GIS có chức năng chuyển đổi dữ liệu từ các hệ thống viễn thám và hiển thị dữ liệu vector trên nền ảnh viễn thám </p>
+<p>Bản đồ ảnh: ảnh đã được nắn chỉnh, đưa các yếu tố toán học về bản đồ lên: phép chiếu, toạ độ, điểm khống chế, khung, lưới..v..v.. </p>
+<br>
+<h2>4.7.2.Các ứng dụng áp dụng công nghệ GIS như là một công cụ để quản lý , phân tích dữ liệu và trợ giúp tạo quyết định.</h2>
+<h3>4.7.2.1. Quản lý và điều tra tài nguyên</h3>
+<h4>4.7.2.1.1 Quản lý tài nguyên thiên nhiên</h4>
+<strong>TÀI NGUYÊN NƯỚC</strong>
+<p>GIS có thể hỗ trợ đánh giá mức nước ngầm, mô phỏng hệ thống sông hồ và nhiều ứng dụng liên quan đến quản lý tài nguyên nước khác. Những ví dụ dưới đây là một vài ứng dụng của GIS trong lĩnh vực này.</p>
+<p>Kiểm soát mức nước ngầm</p>
+<p>Duy trì mực nước ngầm thích hợp trong các vùng khai khoáng là một vấn đề lớn. Trường Ðại học Kỹ thuật Aachen, Ðức đã sử dụng GIS để kiểm soát mực nước ngầm cho các vùng khai thác than, tạo các bản đồ mực nước ngầm, kết hợp với các dữ liệu khác như thổ nhưỡng, địa hình, quy mô khai thác mỏ, công nghệ kỹ thuật được sử dụng, cung cấp công cụ đắc lực cho các nhà phân tích.</p>
+<p>Kiểm soát sự phục hồi mực nước ngầm</p>
+<br>
+<%= image_tag ("/images/g18.jpg"), class: "img-responsive" %>
+<p><i>Hình 48: Kiểm soát và phục hồi mực nước ngầm.</i></p>
+<br><br>
+<p>Ðánh giá sự phục hồi mực nước ngầm là rất khó khăn, nhưng với công nghệ GIS công việc này trở nên dễ dàng hơn. Umlandverband Frankfurt, Ðức, đã dùng</p>
+<p>GIS để xây dựng các lớp bản đồ cho mỗi tính toán về sự phục hồi mực nước ngầm.</p>
+<p>Những lớp này sau đó được kết hợp lại để tạo nên một bản đồ cuối cùng biểu diễn sự phục hồi của mỗi vùng.</p>
+<p>GIS giúp cho các nhà nghiên cứu dễ dàng tính toán và mô phỏng đồng thời tốc độ phục hồi mực nước ngầm của các vùng khác nhau.</p>
+<strong>Phân tích hệ thống sông ngòi</strong>
+<br>
+<%= image_tag ("/images/g19.jpg"), class: "img-responsive" %>
+<p><i>Hình 49: Phân tích hệ thống song ngòi.</i></p>
+<br>
+<p>Viện Ðịa chất ở Zagreb, Croatia, đã sử dụng GIS để phân tích hệ thống sông cũng như toàn bộ vùng lưu vực sông Drava. Với công nghệ GIS có thể xây dựng mô phỏng mạng lưới sông ngòi của khu vực cùng các thông số đặc trưng cho mỗi dòng chảy và phân tích những ảnh hưởng mà chúng có thể chịu tác động.</p>
+<p>Quản lý các lưu vực sông</p>
+<br>
+<p>Lưu vực sông là một hệ thống nhạy cảm và phức tạp. Quản lý lưu vực sông đòi hỏi lưu lượng nước đầy đủ, duy trì sự ổn định của các hệ sinh thái, kiểm soát lũ. Công ty Quản lý Chất thải và Năng lượng Hạt nhân Thuỵ Ðiển và Nespak, Pakistan phối hợp sử dụng GIS hỗ trợ quản lý vùng lưu vực sông Torrent ở Pakistan. GIS được sử dụng để mô hình hoá sự cân bằng nước, quá trình xói mòn, và kiểm soát lũ cho khu vực.</p>
+<p>Hammon, Jensen, Wallen & Associates dùng GIS để kiểm soát vùng lưu vực sông Santa Lucia Preserve. Mô hình không gian ba chiều được xây dựng nhờ công nghệ GIS, đã giúp các nhà nghiên cứu tiếp cận chính xác về địa hình và thổ nhưỡng của khu vực, từ đó xây dựng những quy luật diễn biến quan trọng cho toàn bộ vùng lưu vực sông.</p>
+<strong>Kiểm soát các nguồn nước</strong>
+<br>
+<%= image_tag ("/images/g20.jpg"), class: "img-responsive" %>
+<p><i>Hình 51: Kiểm soát các nguồn nước.</i></p>
+<br>
+<p>Tại Mỹ, GIS được dùng để quản lý sự phân bố của các nguồn nước, nhờ đó các nhà khoa học có thể dễ d xác định vị trí các nguồn nước này trong toàn bộ hệ thống.</p>
+<strong>Qui hoạch sử dụng tài nguyên đất</strong>
+<br>
+<p>Công nghệ GIS hỗ trợ rất nhiều trong công việc quy hoạch sử dụng đất. Những dữ liệu về hiện trạng sử dụng đất được thu thập từ những quan trắc không gian được xử lý trong hệ GIS, lập bản đồ hiện trạng, kèm đó là những số liệu phân tích. Dựa vào đó các nhà qui hoạch có thể dễ dàng quản lý và phát triển các kế hoạch sử dụng đất hợp lý.</p>
+<p>Thành phố Brno, Cộng hoà Czech, đã dùng công nghệ GIS để phát triển qui hoạch tổng thể của thành phố và hiển thị thông tin theo cơ sở dữ liệu GIS địa chính của thành phố.</p>
+<br>
+<%= image_tag ("/images/g21.jpg"), class: "img-responsive" %>
+<p><i>Hình 52: TP Brno.</i></p>
+<br>
+<p>Mlada, Cộng hoà Czech cũng sử dụng GIS để hỗ trợ kế hoạch quy hoạch lại một khu sân bãi quân sự, đánh giá và mô phỏng các loại tài nguyên đất: đất nông nghiệp, đất nông nghiệp, đất tự nhiên.</p>
+<p>Viện Ðịa lý "Agustin Codazzi" (IGAC) của Colombia đã dùng công nghệ GIS để hiển thị và kiểm soát hiện trạng sử dụng đất hiện nay và trong tương lai của thành phố Ibague.</p>
+<br><br>
+<strong>Phân tích xu hướng xây dựng</strong>
+<p>Sở Phát triển Nhà và Ðô thị Adelaide, Australia sử dụng GIS để phân tích xu hướng xây dựng của thành phố, từ đó chỉ ra sự mở rộng của thành phố và ảnh hưởng của nó đối với cơ sở hạ tầng.</p>
+<br>
+<%= image_tag ("/images/g22.jpg"), class: "img-responsive" %>
+<p><i>Hình 54: Phân tích xu hướng xây dựng.</i></p>
+<br><br>
+<strong>Kiểm soát tài nguyên đất</strong>
+<br>
+<%= image_tag ("/images/g23.jpg"), class: "img-responsive" %>
+<p><i>Hình 55: Tài nguyên đất.</i></p>
+<br>
+<h3>4.7.2.2 GIS với môi trường:</h3>
+<p>Các ứng dụng GIS được liên tục phát triển trong lĩnh vực quản lý và bảo vệ môi trường. Từ chương trình kiểm kê nguồn tài nguyên thiên nhiên của Canada trong những năm 1960, đến các chương trình GIS cấp bang của Mỹ bắt đầu vào cuối những năm 1970, đến mô hình hoá quản lý các sự cố môi trường hiện đang được phát triển, công nghệ GIS đã cung cấp các phương tiện để quản lý và phân tích các yếu tố ảnh hưởng đến môi trường ngày càng hữu hiệu hơn.</p>
+<br>
+<p>Xu hướng hiện nay trong quản lý môi trường là sử dụng tối đa khả năng cho phép của GIS. Sự phát triển của phần cứng làm cho máy tính có nhiều khả năng hơn, mạnh hơn và các ứng dụng GIS cũng trở nên thân thiện hơn với người sử dụng bởi các khả năng hiển thị dữ liệu ba chiều, các công cụ phân tích không gian và giao diện tuỳ biến. </p>
+<br>
+<p>Nhờ khả năng xử lý các tập hợp dữ liệu lớn từ các cơ sở dữ liệu phức tạp, nên GIS thích hợp với các nhiệm vụ quản lý môi trường. Các mô hình phức tạp cũng có thể dễ dàng cập nhật thông tin nhờ sử dụng GIS. </p>
+<br>
+<p>GIS được sử dụng để cung cấp thông tin nhanh hơn và hiệu quả hơn cho các nhà hoạch định chính sách. Các cơ quan chính phủ dùng GIS trong quản lý các nguồn tài nguyên thiên nhiên, trong các hoạt động quy hoạch, mô hình hoá và quan trắc. </p>
+<br>
+<p>GIS cũng được sử dụng để đánh giá các sự cố môi trường. Các cơ quan chính phủ và địa phương phải đối phó nhanh chóng với thiên tai, các rủi ro trong công nghiệp và các sự cố môi trường. Thông tin địa lý là những thông tin quan trọng để đưa ra những quyết định một cách nhanh chóng. Các phân tích GIS phụ thuộc vào chất lượng, giá trị và tính tương thích của các dữ liệu địa lý dạng số. </p>
+<br>
+<p>Việc chia xẻ dữ liệu sẽ kích thích sự phát triển các nhu cầu về sản phẩm và dịch vụ GIS. Các nguồn dữ liệu tăng thêm nhờ sự kết hợp của GIS với GPS (hệ thống định vị toàn cầu) và công nghệ viễn thám, đã cung cấp các công cụ thu thập dữ liệu hiệu quả hơn. </p>
+<br>
+<h3>4.7.2.3 Hoạt động về nghiên cứu khoa học trong các trường đại học và viện nghiên cứu:</h3>
+<p>Trong những năm qua, việc nghiên cứu, đào tạo và ứng dụng GIS đã được triển khai rộng khắp trên cả nước. Ở khu vực duyên hải miền Trung và Tây Nguyên, GIS đã được ứng dụng tương đối rộng rãi ở các trường Đại học và các cơ quan chuyên môn thuộc nhiều lĩnh vực khác nhau. Thời gian qua, Khoa Địa lý - Địa chất nói riêng và Trường Đại học Khoa học nói chung cũng đã có nhiều nghiên cứu ứng dụng GIS trong nghiên cứu khoa học và giảng dạy. </p>
+<p>Trong thời gian gần đây đã có rất nhiều hội thảo về GIS được tổ chức tại các trường đại học , với sự tham gia của các bộ giảng viên của 1 số trường đại học, các viện và các trung tâm nghiên cứu. </p>
