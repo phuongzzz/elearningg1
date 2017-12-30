@@ -13,6 +13,7 @@ gem 'jquery-rails', '~> 4.3', ">= 4.3.1"
 gem 'jquery-turbolinks'
 gem 'high_voltage', '~> 3.0.0'
 gem 'bootstrap-sass', '3.3.7'
+gem 'font-awesome-rails', '~> 4.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
